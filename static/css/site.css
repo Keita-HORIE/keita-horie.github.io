@@ -1,0 +1,111 @@
+/* ========================================================================== *
+ *                                                                            *
+ *       CSS, site.css                                                        *
+ *                                                                            *
+ *       Author          : AmanohaLab                                         *
+ *       Date            : 2026/10/04                                         *
+ *       @version Rev.00 : AmanohaLab (2026/10/04)                            *
+ *                                                                            *
+ * ========================================================================== */
+
+/* === [大項目] 基準値 === */
+:root {
+    /* 色 */
+    --color-text: #222222;
+    --color-text-sub: #666666;
+    --color-bg: #fbfbf8;
+    --color-accent: #2a5d8f;
+    --color-border: #dddddd;
+
+    /* フォント：日本語のシステムフォントを使う（Webフォントは使わない） */
+    --font-base: system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+        "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+    --font-size-base: 1rem;
+    --line-height-base: 1.8;
+
+    /* 余白と幅 */
+    --space-s: 0.5rem;
+    --space-m: 1rem;
+    --space-l: 2rem;
+    --content-max-width: 40rem;
+}
+
+/* === [大項目] 全体の初期設定 === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    font-family: var(--font-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    /* 長い語やURLで横にはみ出さないようにする */
+    overflow-wrap: anywhere;
+}
+
+a {
+    color: var(--color-accent);
+}
+
+h1 {
+    margin: var(--space-m) 0;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+/* === [大項目] レイアウト === */
+
+/* --- [中項目] 共通の枠：1カラムで中央に寄せ、最大幅を設ける --- */
+.site-header,
+.site-main,
+.site-footer {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-m);
+}
+
+/* --- [中項目] ヘッダー --- */
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-title {
+    color: var(--color-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- [中項目] フッター --- */
+.site-footer {
+    margin-top: var(--space-l);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-sub);
+}
+
+/* === [大項目] ページごとの部品 === */
+
+/* --- [中項目] About --- */
+.about-notes {
+    padding-left: 1.5em;
+}
+
+.about-published {
+    color: var(--color-text-sub);
+}
+
+/* === [大項目] 狭い画面（スマートフォン） === */
+@media (max-width: 480px) {
+    :root {
+        --space-m: 0.75rem;
+        --space-l: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+}
